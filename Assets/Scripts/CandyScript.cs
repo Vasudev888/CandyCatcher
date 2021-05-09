@@ -23,5 +23,11 @@ public class CandyScript : MonoBehaviour
             // Score++;
             Destroy(gameObject);
         }
+
+        else if(collision.gameObject.tag == "Boundary")
+        {
+            //lives--;
+            Destroy(gameObject);
+        }
     }
 }
