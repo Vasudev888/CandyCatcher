@@ -380,8 +380,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0
+  far clip plane: 50.01
   field of view: 60
   orthographic: 1
   orthographic size: 4.5
@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe191b457326f8747ae2d2f52cf1b979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxX: 7.25
   Candies:
   - {fileID: 3372340503988215798, guid: ed8fe6782993155429ffe7905c25e12e, type: 3}
   - {fileID: 6639264951187025933, guid: 06c7c35c0b34d5442bae90e5995eab2b, type: 3}
@@ -456,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867493471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 7.57, z: -0.5669492}
+  m_LocalPosition: {x: 7.25, y: 7.57, z: -0.5669492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

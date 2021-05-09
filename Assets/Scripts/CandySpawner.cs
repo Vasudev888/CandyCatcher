@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CandySpawner : MonoBehaviour
 {
+    [SerializeField]
     float maxX;
 
     public GameObject[] Candies;
@@ -21,6 +22,9 @@ public class CandySpawner : MonoBehaviour
     void SpawnCandy()
     {
         int randomCandy = Random.Range(0, Candies.Length);
-        Instantiate(Candies[randomCandy], transform.position, transform.rotation);
+        float randomX = Random.Range(-maxX, maxX);
+        Vector3 randomPos = new Vector3(randomX, transform.position.y, transform.position.z);
+        Instantiate(Candies[randomCandy], randomPos, transform.rotation);
+
     }
 }
