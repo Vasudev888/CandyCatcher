@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public PlayerController playerController;
     public static GameManager instance;
+    public GameObject livesHolder;
+    public GameObject gameOverPanel;
+
     int score = 0;
     public int lives = 3;
-    bool isGameOver = false;
+    bool gameOver = false;
     public Text scoreText;
     
     private void Awake()
@@ -17,8 +21,11 @@ public class GameManager : MonoBehaviour
     }
     public void IncrementScore()
     {
-        score++;
-        scoreText.text = score.ToString();
+        if(!gameOver)
+        {
+            score++;
+            scoreText.text = score.ToString();
+        }
     }
 
     public void DecrementLives()
@@ -27,17 +34,23 @@ public class GameManager : MonoBehaviour
         {
             lives--;
             print(lives);
+            livesHolder.transform.GetChild(lives).gameObject.SetActive(false);
         }
 
         if(lives <= 0)
         {
-            isGameOver = true;
+            gameOver = true;
             GameOver();
         }
     }
 
     public void GameOver()
     {
+        CandySpawner.instance.StopSpawningCandy();
+
+        //GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;
+        playerController.canMove = false;
+        gameOverPanel.SetActive(true);
         print("GameOver()");
     }
 }
