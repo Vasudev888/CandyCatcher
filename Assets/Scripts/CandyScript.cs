@@ -27,7 +27,7 @@ public class CandyScript : MonoBehaviour
 
         else if(collision.gameObject.tag == "Boundary")
         {
-            //lives--;
+            GameManager.instance.DecrementLives();
             Destroy(gameObject);
         }
     }

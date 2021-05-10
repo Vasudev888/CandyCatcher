@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     int score = 0;
+    public int lives = 3;
     bool isGameOver = false;
     public Text scoreText;
     
@@ -18,6 +19,26 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
-        print(score);
+    }
+
+    public void DecrementLives()
+    {
+        if(lives > 0)
+        {
+            lives--;
+            print(lives);
+        }
+
+        if(lives <= 0)
+        {
+            isGameOver = true;
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        print("GameOver()");
     }
 }
+ 
