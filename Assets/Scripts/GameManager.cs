@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,6 +53,16 @@ public class GameManager : MonoBehaviour
         playerController.canMove = false;
         gameOverPanel.SetActive(true);
         print("GameOver()");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
  
